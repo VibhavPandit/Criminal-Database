@@ -1,0 +1,50 @@
+
+/*Insertion of Values */
+
+insert into criminal values('56','Vibishana','Singh','1989/7/22','Male','32','Theft');
+insert into criminal values('58','Kamat','Kumar','1990/9/6','Male','31','Murder');
+insert into criminal values('76','Prajapati','Singh','1991/3/2','Male','29','Assault');
+insert into criminal values('89','Kamala','Rathore','1989/7/15','Female','32','Theft');
+insert into criminal values('90','Salim','Shaikh','2000/7/22','Male','21','Shooting');
+insert into criminal values('23','Rithika','Shetty','2001/7/22','Female','20','Drug Abuse');
+insert into criminal values('82','Sumit','Saini','1988/5/22','Male','33','Smuggling');
+insert into criminal values('69','Kartik','Sharma','1996/7/22','Male','24','Drug Abuse');
+insert into criminal values('12','Radika','Sharma','1989/3/5','Female','32','Drug Abuse');
+insert into criminal values('46','Ajay','Shankar','1999/2/12','Male','22','Identity Theft');
+
+
+insert into officer values('1111','Manish Sharma','1983/5/25','Male','38','121');
+insert into officer values('1432','R Sreelekha','1992/2/14','Female','28','122');
+insert into officer values('6947','Mahesh Bhagwat','1971/9/16','Male','50','123');
+insert into officer values('3213','Asra Garg','1979/9/20','Male','48','124');
+insert into officer values('2390','Roopa Moudgil','1991/5/1','Female','29','125');
+
+
+insert into station values(121, 'Girinagar Police Station','Girinagar');
+insert into station values(122, 'Vijayanagar Police Station','Vijayanagar');
+insert into station values(123, 'Malleshwaram Police Station','Malleshwaram');
+insert into station values(124, 'Basavanagudi Police Station','Basavanagudi');
+insert into station values(125, 'Jayanagar Police Station','Jayanagar');
+
+insert into victim values('356','Abhijit','Iyer','Male','43','no medical condition','monetary','1012567894');
+insert into victim values('367','Bharath','Gowda','Male','36','broken hand','vehicle stolen','9997123465');
+insert into victim values('376','Chaitra','Shetty','Female','29','head injury','mobile stolen','6533489121');
+insert into victim values('379','Faisal','Khan','Male','38','no medical condition','monetary','3254477812');
+insert into victim values('389','Manisha','Jain','Female','29','dead',' Murdered','9087872313');
+insert into victim values('401','Nitin','Gokhale','Male','49','no medical condition','Vehicle stolen','4356789043');
+insert into victim values('411','Raghunandan','K','Male','28','broken leg','Laptop stolen','5601234567');
+insert into victim values('423','Sunita','Joseph','Female','57','Hip broken','Gold chain stolen','4216578930');
+insert into victim values('456','Mohit','Sharma','Male','34','no medical condition','shop burned down','9085367234');
+insert into victim values('467','Giriraj','Singh','Male','23','damaged lungs','Drug abuse','9315678904');
+
+
+
+insert into cases values(151, 56, 'Theft', 1111, 367, 121, '2020/10/03', 'Girinagar', '13:18:48');
+insert into cases values(152, 76, 'Assault', 1432, 423, 121, '2020/12/23', 'Old Airport Road', '02:24:55');
+insert into cases values(153, 90, 'Shooting', 6947, 411, 121, '2020/06/10', 'Malleshwaram', '10:06:31');
+insert into cases values(154, 23, 'Drug Abuse', 3213,467 , 121, '2017/11/16', 'Subhash Nagar', '13:25:38');
+insert into cases values(155, 82, 'Smuggling', 2390, 379, 122, '2021/03/09', 'Koramangala', '06:12:45');
+insert into cases values(156, 56, 'Theft', 1111, 423, 121, '2018/08/03', 'Basavanagudi', '16:27:13');
+insert into cases values(167, 58, 'Murder', 6947, 389,125, '2019/07/13', 'Indiranagar','22:47:35');
+insert into cases values(168, 76, 'Assault', 6947, 467,125, '2019/07/13', 'Indiranagar','22:47:35');
+insert into cases values(169, 89, 'Theft', 1432, 401,124, '1999/05/23', 'RR Nagar','10:47:35');
