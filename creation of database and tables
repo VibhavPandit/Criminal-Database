@@ -1,0 +1,133 @@
+
+/* Creation of Database */
+CREATE DATABASE team6;
+
+/* Connecting To The Database */
+\c team6;
+
+/*Creation of Tables */
+
+create table criminal(
+c_id integer,
+f_name char(15),
+l_name char(15),
+DOB date,
+Gender char(10),
+Age integer,
+crime char(15),
+PRIMARY KEY(c_id,crime)
+);
+
+
+create table station(
+s_id integer,
+s_name char(50),
+s_place varchar(50),
+PRIMARY KEY (s_id)
+);
+
+create table officer(
+o_id integer,
+name char(15),
+DOB date,
+Gender char(10),
+Age integer,
+s_id integer,
+PRIMARY KEY(o_id),
+FOREIGN key(s_id) references station(s_id)
+);
+
+create table victim(
+v_id integer,
+f_name char(15),
+l_name char(15),
+Gender char(10),
+Age integer,
+medical_condition varchar(20),
+loss varchar(20),
+ph_no numeric(10) check(ph_no<10000000000 and ph_no>999999999),
+PRIMARY KEY(v_id)
+);
+
+create table cases(
+case_id integer,
+criminal_id integer,
+crime char(15),
+officer_id integer,
+victim_id integer,
+station_id integer,
+crime_date date,
+crime_place varchar(20),
+crime_time time,
+PRIMARY KEY(case_id),
+FOREIGN KEY(criminal_id,crime) references criminal(c_id,crime),
+FOREIGN KEY(officer_id) references officer(o_id),
+FOREIGN KEY(victim_id) references victim(v_id),
+FOREIGN KEY(station_id) references station(s_id)
+);
+
+
+/* Queries */
+
+
+select criminal.*
+from criminal
+where criminal.c_id=some(select cases.criminal_id from cases where cases.officer_id=6947);
+
+select *
+from cases
+where cases.criminal_id= some(
+select cases.criminal_id
+from cases
+group by criminal_id
+having count(criminal_id)>1
+);
+
+select *
+from cases
+where station_id=some(
+select s_id
+from station
+where s_name='Girinagar Police Station');
+
+select s_name
+from station
+where s_id=(select station_id from cases where criminal_id=some(select c_id from criminal where f_name='Kamala' and l_name='Rathore'));
+
+
+select *
+from cases
+where prison_time>2;
+
+select *
+from cases
+where crime='Theft';
+
+delete from victim
+where c_id='69';
+
+
+Alter table cases
+add prison_time integer;
+
+update cases
+set prison_time=1
+where crime='Theft';
+
+update cases
+set prison_time=3
+where crime='Assault';
+
+
+alter table cases
+drop constraint cases_victim_id_fkey;
+
+
+alter table cases
+add constraint victim_id_fkey 
+FOREIGN key(victim_id) references victim (v_id) on delete cascade;
+
+delete from victim
+where v_id='367';
+
+
